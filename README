@@ -1,0 +1,1 @@
+The FoxyCart Interceptor is a middle-man that intercepts the FoxyCart XML Datafeed and hands it off to as many scripts as you need.

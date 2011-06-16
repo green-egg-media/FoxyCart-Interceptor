@@ -1,1 +1,36 @@
-The FoxyCart Interceptor is a middleware that intercepts the FoxyCart XML Datafeed and hands it off to as many scripts as you need.
+The FoxyCart Interceptor is middleware that intercepts the FoxyCart XML Datafeed and hands it off to as many scripts as you need.
+
+Description:
+	Intercepts the FoxyCart XML Datafeed and hands it off to two or more other URLs for processing.
+	This allows a single datafeed to be used by more than one script.
+	A response of "foxy" is returned to FoxyCart only if ALL secondary scripts return "foxy" to the interceptor.
+	
+Author:
+	Lance Johnson of Green Egg Media (http://www.greeneggmedia.com/)
+
+How to Use:
+	Step 1: Upload the Interceptor
+	#	Upload this file to your server.
+	#	This file needs to live somewhere that is directly web-accessible, i.e., it is not CMS-dependant, and
+		is not served out by a CMS.
+	
+	Step 2: Set your URLs
+	#	Add each URL to the $urls array.
+	
+	Step 3: Tell FoxyCart where to send the XML
+	#	In your FoxyCart Admin panel, point the XML datafeed to this script.
+	
+	Step 4: TEST
+	#	Test that everything is working correctly.
+	#	Test that everything is working correctly.
+	#	Test that everything is working correctly. (Yes, test three times!)
+
+IMPORTANT NOTES:
+	*	Interceptor does not decrypt your datafeed, it only passes it along to additional scripts, so your
+		scripts need to do their own decoding.
+	*	FoxyCart expects a response of "foxy" when the datafeed is sent, otherwise it will mark that feed
+		as failed. Interceptor will only return "foxy" if all of the subsidiary scripts return "foxy" to
+		Interceptor. Otherwise, Interceptor will return the entire response of each subsidiary script.
+
+Version:
+	0.1.0 Alpha
